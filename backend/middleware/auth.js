@@ -1,8 +1,13 @@
 // middleware/auth.js
-const Session = require("../models/Session");
-const User = require("../models/User");
+import Session from "../models/Session.js";
+import User from "../models/User.js";
 
-export async function authFetch(url, method = "GET", body = null, token = null) {
+export async function authFetch(
+  url,
+  method = "GET",
+  body = null,
+  token = null
+) {
   try {
     const finalToken = token || sessionStorage.getItem("sessionToken");
 
@@ -34,4 +39,3 @@ export async function authFetch(url, method = "GET", body = null, token = null) 
     throw error;
   }
 }
-
